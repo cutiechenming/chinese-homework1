@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九年级语文1月独立作业讲评</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #4A6FA5;
+            --secondary: #F9B872;
+            --success: #6BBF59;
+            --danger: #E15554;
+            --info: #17A2B8;
+            --light: #F8F9FA;
+            --dark: #343A40;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 8px solid var(--primary);
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .meta-info span {
+            background-color: #f0f8ff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--secondary);
+        }
+        
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+            border-top: 5px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #eee;
+        }
+        
+        .question-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .question-points {
+            background: var(--secondary);
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            min-width: 70px;
+            text-align: center;
+        }
+        
+        .question-content {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        .question-content.small {
+            font-size: 1.1rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .option.correct {
+            border-color: var(--success);
+            background-color: rgba(107, 191, 89, 0.1);
+        }
+        
+        .option.incorrect {
+            border-color: var(--danger);
+            background-color: rgba(225, 85, 84, 0.05);
+        }
+        
+        .option-label {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .answer-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #eee;
+        }
+        
+        .answer-title {
+            font-size: 1.5rem;
+            color: var(--success);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .answer-content {
+            font-size: 2.2rem;
+            font-weight: bold;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .analysis-title {
+            font-size: 1.5rem;
+            color: var(--info);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .analysis-content {
+            font-size: 1.3rem;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            line-height: 1.7;
+        }
+        
+        /* 重点突出样式 - 多种样式混合 */
+        .highlight {
+            background-color: #fffacd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #d35400;
+        }
+        
+        .highlight-key {
+            background-color: #e8f4f8;
+            border: 2px solid #17A2B8;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #0c5460;
+            margin: 0 3px;
+        }
+        
+        .highlight-point {
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            padding: 8px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 5px solid #ff7e5f;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .highlight-essential {
+            background-color: #d4edda;
+            border: 2px dashed #28a745;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #155724;
+        }
+        
+        .highlight-term {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #721c24;
+        }
+        
+        .key-point {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--info);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .key-point-title {
+            font-weight: bold;
+            color: var(--info);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #3a5a8c;
+            transform: scale(1.05);
+        }
+        
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #5aaa4a;
+            transform: scale(1.05);
+        }
+        
+        .btn-info {
+            background: var(--info);
+            color: white;
+        }
+        
+        .btn-info:hover {
+            background: #138496;
+            transform: scale(1.05);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .translation-container {
+            margin: 25px 0;
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .translation-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .translation-row:last-child {
+            border-bottom: none;
+        }
+        
+        .original, .translation {
+            padding: 15px;
+            width: 50%;
+        }
+        
+        .original {
+            background: #f0f7ff;
+            font-weight: 500;
+            border-right: 1px solid #ddd;
+        }
+        
+        .translation {
+            background: white;
+        }
+        
+        .translation-title {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .poem-analysis {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 6px solid #9b59b6;
+        }
+        
+        .poem-title {
+            font-size: 1.8rem;
+            color: #8e44ad;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .poem-content {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            font-family: '楷体', 'STKaiti', serif;
+        }
+        
+        .reading-question {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .reading-question:last-child {
+            border-bottom: none;
+        }
+        
+        .reading-question-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .reading-answer-content {
+            font-size: 1.5rem;
+            line-height: 1.7;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a5a8c;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.2rem; }
+            .question-content { font-size: 1.1rem; }
+            .answer-content { font-size: 1.8rem; }
+            .meta-info { flex-direction: column; align-items: center; gap: 10px; }
+            .btn-container { flex-direction: column; }
+            .btn { width: 100%; }
+            .translation-row { flex-direction: column; }
+            .original, .translation { width: 100%; }
+            .original { border-right: none; border-bottom: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> 九年级语文1月独立作业讲评</h1>
+            <div class="subtitle">姜堰区城西学校教育集团三水初中校区</div>
+            <div class="meta-info">
+                <span><i class="fas fa-clock"></i> 时间：150分钟</span>
+                <span><i class="fas fa-star"></i> 分值：150分</span>
+                <span><i class="fas fa-calendar-alt"></i> 2025-2026学年度秋学期</span>
+            </div>
+            <div style="margin-top: 15px; color: #666; font-size: 1.1rem;">
+                <i class="fas fa-lightbulb"></i> 请注意：所有试题的答案均填写在答题卡上，答案写在试卷上无效。
+            </div>
+        </header>
+        
+        <div class="section-title">
+            <i class="fas fa-pen-alt"></i> 一、积累与运用（27分）
+        </div>
+        
+        <!-- 第1题 -->
+        <div class="card" id="question1">
+            <div class="question-header">
+                <div class="question-title">第1题：根据拼音写汉字</div>
+                <div class="question-points">4分</div>
+            </div>
+            <div class="question-content">
+                阅读下面的文字，根据拼音在田字格内写出相应的汉字。<br><br>
+                何氏宗祠位于泰兴市黄桥镇珠巷街，是何氏家族祭sì祖先和先贤的场所，始建于明代，改建于清初，虽历经cāng桑，仍风骨犹存，有"江北第一祠"之誉，是江北地区唯一完好的祠堂文化遗迹。宗祠大厅气势恢hóng，古朴庄严......明清时代，黄桥何氏就曾出过4名进士、10名举人、30名贡生、300名秀才，且官场中人多为正直之士。祠堂内高悬的"吏瘦民肥"四个字，不仅zhāo示着这个家族兴盛的原因......
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="showAnswer('answer1')">
+                    <i class="fas fa-eye"></i> 显示答案
+                </button>
+                <button class="btn btn-info" onclick="showAnalysis('analysis1')">
+                    <i class="fas fa-brain"></i> 解题思路
+                </button>
+            </div>
+            
+            <div class="answer-section">
+                <div id="answer1" class="hidden">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 正确答案
+                    </div>
+                    <div class="answer-content">
+                        <span class="highlight-key">祀</span> &nbsp; <span class="highlight-key">沧</span> &nbsp; <span class="highlight-key">宏</span> &nbsp; <span class="highlight-key">昭</span>
+                    </div>
+                </div>
+                
+                <div id="analysis1" class="hidden">
+                    <div class="analysis-title">
+                        <i class="fas fa-lightbulb"></i> 解题思路
+                    </div>
+                    <div class="analysis-content">
+                        <p>这道题考查根据拼音写汉字的能力，需要结合语境判断正确的字形：</p>
+                        <div class="highlight-point">
+                            <p>1. <span class="highlight-term">祭sì</span>：祭祀祖先，所以是<span class="highlight-essential">"祀"</span>（祭祀）</p>
+                            <p>2. <span class="highlight-term">cāng桑</span>：指沧海桑田，形容世事变化很大，所以是<span class="highlight-essential">"沧"</span>（沧海）</p>
+                            <p>3. <span class="highlight-term">气势恢hóng</span>：形容气势宏大，所以是<span class="highlight-essential">"宏"</span>（恢宏）</p>
+                            <p>4. <span class="highlight-term">zhāo示</span>：明显地显示，所以是<span class="highlight-essential">"昭"</span>（昭示）</p>
+                        </div>
+                        <p>解题时要注意结合词语的意思和上下文语境，避免写同音别字。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第2题 -->
+        <div class="card" id="question2">
+            <div class="question-header">
+                <div class="question-title">第2题：词语和标点选择</div>
+                <div class="question-points">2分</div>
+            </div>
+            <div class="question-content">
+                在【甲】【乙】两处分别填入词语和标点，最恰当的一项是（ ）<br><br>
+                A．【甲】保养 【乙】"" &nbsp;&nbsp;&nbsp;&nbsp;
+                B．【甲】保存 【乙】"" <br>
+                C．【甲】保存 【乙】《》 &nbsp;&nbsp;
+                D．【甲】保养 【乙】《》
+            </div>
+            
+            <div class="options">
+                <div class="option correct" data-option="B">
+                    <div class="option-label">B</div>
+                    <div>【甲】保存 【乙】""</div>
+                </div>
+                <div class="option incorrect" data-option="A">
+                    <div class="option-label">A</div>
+                    <div>【甲】保养 【乙】""</div>
+                </div>
+                <div class="option incorrect" data-option="C">
+                    <div class="option-label">C</div>
+                    <div>【甲】保存 【乙】《》</div>
+                </div>
+                <div class="option incorrect" data-option="D">
+                    <div class="option-label">D</div>
+                    <div>【甲】保养 【乙】《》</div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="showAnswer('answer2')">
+                    <i class="fas fa-eye"></i> 显示答案
+                </button>
+                <button class="btn btn-info" onclick="showAnalysis('analysis2')">
+                    <i class="fas fa-brain"></i> 解题思路
+                </button>
+            </div>
+            
+            <div class="answer-section">
+                <div id="answer2" class="hidden">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 正确答案
+                    </div>
+                    <div class="answer-content">
+                        <span class="highlight-key">B</span>
+                    </div>
+                </div>
+                
+                <div id="analysis2" class="hidden">
+                    <div class="analysis-title">
+                        <i class="fas fa-lightbulb"></i> 解题思路
+                    </div>
+                    <div class="analysis-content">
+                        <p>本题考查词语搭配和标点符号的使用：</p>
+                        <div class="highlight-point">
+                            <p><span class="highlight-term">【甲】处</span>：</p>
+                            <p>"<span class="highlight-essential">保存</span>"指使事物存在下去，不被破坏或消失（如"保存遗迹"）；</p>
+                            <p>"保养"指保护调养（多用于物品、身体等）。此处搭配"祠堂文化遗迹"，应选<span class="highlight-essential">"保存"</span>。</p>
+                            
+                            <p><span class="highlight-term">【乙】处</span>：</p>
+                            <p>"吏瘦民肥"是直接引用的匾额文字，并非书籍或篇章标题，应用<span class="highlight-essential">引号（""）</span>，而非书名号（《》）。</p>
+                        </div>
+                        <p>排除A、D（"保养"搭配不当），排除C（"《》"使用错误），所以正确答案是<span class="highlight-key">B</span>。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第3题 -->
+        <div class="card" id="question3">
+            <div class="question-header">
+                <div class="question-title">第3题：选择题</div>
+                <div class="question-points">2分</div>
+            </div>
+            <div class="question-content small">
+                下列说法正确的一项是（ ）<br><br>
+                A．风骨犹存、文化遗迹、古朴庄严、清廉印记，这四个短语结构各不相同。<br>
+                B．"且官场中人多为正直之士"中的"多"可以删去，不影响意思表达。<br>
+                C．明清两代科举制度最完备，语段中的"进士、举人、贡生、秀才"就是各级考试通过者的名称，如《儒林外史》中的范进就是中的进士。<br>
+                D．语段中划横线的句子是一个递进复句。
+            </div>
+            
+            <div class="options">
+                <div class="option incorrect" data-option="A">
+                    <div class="option-label">A</div>
+                    <div>风骨犹存、文化遗迹、古朴庄严、清廉印记，这四个短语结构各不相同。</div>
+                </div>
+                <div class="option incorrect" data-option="B">
+                    <div class="option-label">B</div>
+                    <div>"且官场中人多为正直之士"中的"多"可以删去，不影响意思表达。</div>
+                </div>
+                <div class="option incorrect" data-option="C">
+                    <div class="option-label">C</div>
+                    <div>明清两代科举制度最完备，语段中的"进士、举人、贡生、秀才"就是各级考试通过者的名称，如《儒林外史》中的范进就是中的进士。</div>
+                </div>
+                <div class="option correct" data-option="D">
+                    <div class="option-label">D</div>
+                    <div>语段中划横线的句子是一个递进复句。</div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="showAnswer('answer3')">
+                    <i class="fas fa-eye"></i> 显示答案
+                </button>
+                <button class="btn btn-info" onclick="showAnalysis('analysis3')">
+                    <i class="fas fa-brain"></i> 解题思路
+                </button>
+            </div>
+            
+            <div class="answer-section">
+                <div id="answer3" class="hidden">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 正确答案
+                    </div>
+                    <div class="answer-content">
+                        <span class="highlight-key">D</span>
+                    </div>
+                </div>
+                
+                <div id="analysis3" class="hidden">
+                    <div class="analysis-title">
+                        <i class="fas fa-lightbulb"></i> 解题思路
+                    </div>
+                    <div class="analysis-content">
+                        <p>本题考查语文基础知识：</p>
+                        <div class="highlight-point">
+                            <p><span class="highlight-term">A项错误</span>："风骨犹存"（主谓短语）、"文化遗迹"（偏正短语）、"古朴庄严"（并列短语）、"清廉印记"（偏正短语）——其中"文化遗迹"与"清廉印记"结构相同，并非"各不相同"。</p>
+                            
+                            <p><span class="highlight-term">B项错误</span>："多"表示"大多数"，删去后变为"官场中人都是正直之士"，与原意（部分而非全部）不符，影响表达。</p>
+                            
+                            <p><span class="highlight-term">C项错误</span>：范进中的是举人，不是进士。中国古代科举考试中，乡试、会试、殿试考中者分别称作"举人""贡士""进士"。</p>
+                            
+                            <p><span class="highlight-term">D项正确</span>：划线句"不仅昭示着这个家族兴盛的原因，更在泰州......镌刻着永恒的清廉印记"中，"不仅......更......"表递进关系，是递进复句。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第4题 -->
+        <div class="card" id="question4">
+            <div class="question-header">
+                <div class="question-title">第4题：古诗文默写</div>
+                <div class="question-points">8分</div>
+            </div>
+            <div class="question-content">
+                按要求填写课文原句。<br><br>
+                我们走进文学的殿堂，让心灵在神州大地间徜徉。欧阳修的"①_________，佳木秀而繁阴"让我们看到山间春夏之美景。好的文学作品，还带给我们独特的情感体验。刘禹锡的"②_________，③_________"让我们体会到诗人一洗伤感低沉情调，尽显慷慨激昂的气概；苏轼的"④_________，⑤_________，此事古难全"让我们感受到词人旷达的胸怀；李白的"⑥_________，⑦_________"让我们感受到诗人对人生前途的乐观豪迈气概；韩愈的"⑧_________，肯将衰朽惜残年"让我们体会到诗人匡正祛邪、义无反顾的勇气。
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="showAnswer('answer4')">
+                    <i class="fas fa-eye"></i> 显示答案
+                </button>
+                <button class="btn btn-info" onclick="showAnalysis('analysis4')">
+                    <i class="fas fa-brain"></i> 解题思路
+                </button>
+            </div>
+            
+            <div class="answer-section">
+                <div id="answer4" class="hidden">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 正确答案
+                    </div>
+                    <div class="answer-content">
+                        <span class="highlight-key">①</span> 野芳发而幽香<br>
+                        <span class="highlight-key">②</span> 沉舟侧畔千帆过<br>
+                        <span class="highlight-key">③</span> 病树前头万木春<br>
+                        <span class="highlight-key">④</span> 人有悲欢离合<br>
+                        <span class="highlight-key">⑤</span> 月有阴晴圆缺<br>
+                        <span class="highlight-key">⑥</span> 长风破浪会有时<br>
+                        <span class="highlight-key">⑦</span> 直挂云帆济沧海<br>
+                        <span class="highlight-key">⑧</span> 欲为圣明除弊事
+                    </div>
+                </div>
+                
+                <div id="analysis4" class="hidden">
+                    <div class="analysis-title">
+                        <i class="fas fa-lightbulb"></i> 解题思路
+                    </div>
+                    <div class="analysis-content">
+                        <p>本题考查古诗文名句默写，需要根据上下文提示写出相应的诗句：</p>
+                        <div class="highlight-point">
+                            <p>1. ①根据"欧阳修""山间春夏之美景"提示，出自《醉翁亭记》"<span class="highlight-essential">野芳发而幽香</span>，佳木秀而繁阴"</p>
+                            <p>2. ②③根据"刘禹锡""慷慨激昂"提示，出自《酬乐天扬州初逢席上见赠》"<span class="highlight-essential">沉舟侧畔千帆过</span>，<span class="highlight-essential">病树前头万木春</span>"</p>
+                            <p>3. ④⑤根据"苏轼""旷达的胸怀"提示，出自《水调歌头》"<span class="highlight-essential">人有悲欢离合</span>，<span class="highlight-essential">月有阴晴圆缺</span>"</p>
+                            <p>4. ⑥⑦根据"李白""乐观豪迈"提示，出自《行路难》"<span class="highlight-essential">长风破浪会有时</span>，<span class="highlight-essential">直挂云帆济沧海</span>"</p>
+                            <p>5. ⑧根据"韩愈""匡正祛邪、义无反顾"提示，出自《左迁至蓝关示侄孙湘》"<span class="highlight-essential">欲为圣明除弊事</span>，肯将衰朽惜残年"</p>
+                        </div>
+                        <p>默写时要注意易错字：①"幽"不是"优"；②"畔"不是"伴"；③"春"不是"村"；⑥"长"不是"常"；⑦"沧"不是"苍"；⑧"弊"不是"蔽"。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第5题 -->
+        <div class="card" id="question5">
+            <div class="question-header">
+                <div class="question-title">第5题：综合性学习《水浒传》</div>
+                <div class="question-points">11分</div>
+            </div>
+            <div class="question-content">
+                <p><strong>【活动一】竞猜情节，走进小说世界：</strong></p>
+                <p>有人根据《水浒传》的情节写了一首小诗，请依次写出诗中画线句的三个情节。</p>
+                <p>①风雪破庙火浸裘，②刃溅狮楼血未收。</p>
+                <p>③香罗帐断公明怒，枷锁崩时天地秋。</p>
+                
+                <p><strong>【活动二】</strong>评说好汉，弘扬侠义精神</p>
+                <p>"侠"是一种精神品质，也是一种社会追求。它饱含了"恩"、"信"、"勇"、"义"、"忠"等丰富内涵。《水浒传》中有许多具有侠义精神的人物，结合侠的定义和文中情节说说李逵能否称之为"侠"？</p>
+                
+                <p><strong>【活动三】</strong>探究手法，品味情节魅力</p>
+                <p>小说大多采用多样的表现手法来组织情节，请将下面的流程图填写完整。</p>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="showAnswer('answer5')">
+                    <i class="fas fa-eye"></i> 显示答案
+                </button>
+                <button class="btn btn-info" onclick="showAnalysis('analysis5')">
+                    <i class="fas fa-brain"></i> 解题思路
+                </button>
+            </div>
+            
+            <div class="answer-section">
+                <div id="answer5" class="hidden">
+                    <div class="answer-title">
+                        <i class="fas fa-check-circle"></i> 正确答案
+                    </div>
+                    <div class="answer-content">
+                        <p><strong>【活动一】</strong></p>
+                        <p>① <span class="highlight-key">林教头风雪山神庙</span></p>
+                        <p>② <span class="highlight-key">武松血溅狮子楼</span></p>
+                        <p>③ <span class="highlight-key">宋江怒杀阎婆惜</span></p>
+                        
+                        <p><strong>【活动二】</strong></p>
+                        <p>示例：李逵<span class="highlight-essential">是"侠"</span>。他出身社会底层，对压迫有着天然的敏感。在<span class="highlight-key">江州劫法场救宋江</span>时，李逵不顾自身安危，手持板斧一路砍杀，不仅救下宋江，还顺势解救了许多无辜百姓。展现了侠者<span class="highlight-term">"路见不平，拔刀相助"</span>的正义感。这种反抗不仅是对个人命运的抗争，更是对整个社会秩序的挑战，体现了侠义精神中<span class="highlight-term">"替天行道"</span>的深层内涵。</p>
+                        
+                        <p><strong>【活动三】</strong></p>
+                        <p>① <span class="highlight-key">大雪阻路，林冲误宿山神庙</span></p>
+                        <p>② <span class="highlight-key">帮助林冲发现陷害阴谋，推动情节发展</span></p>
+                        <p>③ <span class="highlight-key">使林冲走投无路，逼上梁山，激化人物矛盾</span></p>
+                        
+                        <p><strong>活动名称：</strong></p>
+                        <p>【活动二】<span class="highlight-essential">评说好汉，弘扬侠义精神</span></p>
+                        <p>【活动三】<span class="highlight-essential">探究手法，品味情节魅力</span></p>
+                    </div>
+                </div>
+                
+                <div id="analysis5" class="hidden">
+                    <div class="analysis-title">
+                        <i class="fas fa-lightbulb"></i> 解题思路
+                    </div>
+                    <div class="analysis-content">
+                        <p>本题考查《水浒传》相关内容的理解和综合性学习能力：</p>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 活动一解析</div>
+                            <p>1. <span class="highlight-term">"风雪破庙火浸裘"</span>：指林冲在风雪夜山神庙复仇的情节，对应<span class="highlight-essential">"林教头风雪山神庙"</span></p>
+                            <p>2. <span class="highlight-term">"刃溅狮楼血未收"</span>：指武松在狮子楼斗杀西门庆的情节，对应<span class="highlight-essential">"武松血溅狮子楼"</span></p>
+                            <p>3. <span class="highlight-term">"香罗帐断公明怒"</span>：指宋江怒杀阎婆惜的情节，对应<span class="highlight-essential">"宋江怒杀阎婆惜"</span></p>
+                        </div>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 活动二解析</div>
+                            <p>本题为开放性题目，可以从两个角度回答：</p>
+                            <p>1. <span class="highlight-term">支持李逵是"侠"</span>：从李逵劫法场救宋江、反抗压迫、替天行道等角度分析</p>
+                            <p>2. <span class="highlight-term">反对李逵是"侠"</span>：从李逵滥杀无辜、冲动鲁莽、缺乏理性等角度分析</p>
+                            <p>答题时要结合具体情节，言之有理即可。</p>
+                        </div>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 活动三解析</div>
+                            <p>本题考查小说情节组织手法：</p>
+                            <p>1. ①处填<span class="highlight-term">环境描写的作用</span>：<span class="highlight-essential">大雪阻路，林冲误宿山神庙</span></p>
+                            <p>2. ②处填<span class="highlight-term">情节发展的作用</span>：<span class="highlight-essential">帮助林冲发现陷害阴谋，推动情节发展</span></p>
+                            <p>3. ③处填<span class="highlight-term">人物塑造的作用</span>：<span class="highlight-essential">使林冲走投无路，逼上梁山，激化人物矛盾</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <i class="fas fa-book-reader"></i> 二、阅读理解（63分）
+        </div>
+        
+        <!-- 阅读理解（一） -->
+        <div class="card" id="reading1">
+            <div class="question-header">
+                <div class="question-title">（一）古代忠义之士主题学习</div>
+                <div class="question-points">20分</div>
+            </div>
+            
+            <div class="poem-analysis">
+                <div class="poem-title">
+                    <i class="fas fa-feather-alt"></i> 《狱中题壁》赏析
+                </div>
+                <div class="poem-content">
+                    望门投止思张俭，忍死须臾待杜根。<br>
+                    我自横刀向天笑，去留肝胆两昆仑。
+                </div>
+                <p><strong>作者：</strong>谭嗣同（清末维新派志士）</p>
+                <p><strong>背景：</strong>戊戌变法失败后，谭嗣同等六人被捕，这首诗是谭嗣同在狱中所作，表达了他为变法献身的决心。</p>
+                <p><strong>赏析：</strong>前两句借用张俭、杜根的典故，期望康有为、梁启超等维新志士能像张俭、杜根一样逃脱迫害，保存实力。后两句直抒胸臆，表现了自己为变法慷慨赴死的豪迈气概和坚定信念。"我自横刀向天笑"成为千古名句，展现了革命者视死如归的英雄气概。</p>
+            </div>
+            
+            <div class="translation-container">
+                <div class="translation-title">
+                    <i class="fas fa-exchange-alt"></i> 文言文翻译对照
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">荀巨伯远看友人疾，值胡贼攻郡。</div>
+                    <div class="translation">荀巨伯从远方来探望重病的朋友，正好赶上胡贼攻打城池。</div>
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">友人语巨伯曰："吾今死矣，子可去！"</div>
+                    <div class="translation">朋友对巨伯说："我如今就要死去了，你赶紧离开！"</div>
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">巨伯曰："远来相视，子令吾去，败义以求生，岂荀巨伯所行邪？"</div>
+                    <div class="translation">巨伯说："我从远方来探望你，你却让我离开，为了苟且偷生而毁掉道义，这难道是我荀巨伯做的事吗？"</div>
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">贼既至，谓巨伯曰："大军至，一郡尽空，汝何男子，而敢独止？"</div>
+                    <div class="translation">这时胡贼已经到了，问荀巨伯："大军到了，整个城都空了，你是什么人，竟敢独自留在城中？"</div>
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">巨伯曰："友人有疾不忍委之宁以吾身代友人命。"</div>
+                    <div class="translation">巨伯说："我的朋友身患重病，我不忍心舍弃他，我宁愿用我的性命来换取朋友的性命。"</div>
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">贼相谓曰："我辈无义之人，而入有义之国！"</div>
+                    <div class="translation">胡贼相互议论说："我们这些不懂道义的人，却侵入了这么有仁义的国家！"</div>
+                </div>
+                
+                <div class="translation-row">
+                    <div class="original">遂班军而还，一郡并获全。</div>
+                    <div class="translation">于是调回外出打仗的军队，使整个城都因此获救。</div>
+                </div>
+            </div>
+            
+            <!-- 第6-11题 -->
+            <div class="reading-question">
+                <div class="reading-question-title">6.阅读谭嗣同的《狱中题壁》，联系链接材料，回答问题。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer6')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer6" class="hidden reading-answer-content">
+                    <p>(1) 诗的前两句借用<span class="highlight-key">①张俭</span>、<span class="highlight-key">②杜根</span>的典故，期许两个"行者"——出逃避难的康有为和梁启超<span class="highlight-key">③顺利避难，日后东山再起</span>。</p>
+                    <p>(2) 诗的后两句抒发了<span class="highlight-essential">为了变法英勇献身、视死如归的豪迈气概</span>。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">7.用"/"为文中画波浪线的句子断句。（限两处）</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer7')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer7" class="hidden reading-answer-content">
+                    <p>友人有疾<span class="highlight-key">/</span>不忍委之<span class="highlight-key">/</span>宁以吾身代友人命</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">8.解释下列句中加点词的意思。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer8')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer8" class="hidden reading-answer-content">
+                    <p>(1) 友人语巨伯曰：<span class="highlight-key">告诉</span></p>
+                    <p>(2) 遂班军而还：<span class="highlight-key">于是</span></p>
+                    <p>(3) 郡人推功曹张恭行长史事：<span class="highlight-key">推举</span></p>
+                    <p>(4) 别遣铁骑二百及官属：<span class="highlight-key">派遣</span></p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">9.用现代汉语翻译下列句子。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer9')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer9" class="hidden reading-answer-content">
+                    <p>(1) <span class="highlight-essential">我辈无义之人，而入有义之国！</span></p>
+                    <p>翻译：<span class="highlight-key">我们这些不懂道义的人，却侵入了这么有仁义的国家！</span></p>
+                    <p>(2) <span class="highlight-essential">恐击其后，故不得往而降。</span></p>
+                    <p>翻译：<span class="highlight-key">担心他们攻击后路，所以不敢前去救援，只好投降了。</span></p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">10.参照示例，从A、B两句中任选一句，联系上下文，体会加点字的语气及表达效果。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer10')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer10" class="hidden reading-answer-content">
+                    <p><strong>A．岂荀巨伯所行邪？</strong></p>
+                    <p>分析："邪"在这里相当于"<span class="highlight-key">吗</span>"，表示<span class="highlight-essential">反问语气</span>，突出荀巨伯不愿舍弃朋友，坚守道义的决心。</p>
+                    <p><strong>B．岂以就在困厄之中而替之哉？</strong></p>
+                    <p>分析："哉"在这里相当于"<span class="highlight-key">呢</span>"，表示<span class="highlight-essential">反问语气</span>，突出张就要以死明志，不希望父亲因自己被困而改变初衷。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">11.在中华民族历史上，无数忠义志士都把"舍生取义"奉为人生准则。你觉得三则材料中哪一个人物做到了这一人生准则？联系人物的言行或事件进行分析。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer11')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer11" class="hidden reading-answer-content">
+                    <p><span class="highlight-key">谭嗣同</span>。面对政变，<span class="highlight-essential">拒绝逃离</span>，期望康、梁二人安然脱险，"以图将来"。面对屠刀，<span class="highlight-essential">从容不惊，冲天大笑，视死如归</span>，期望自己的一腔热血能够惊醒众生，激发变法图强的革命狂澜。他做到了"舍生取义"的人生准则。</p>
+                    <p><span class="highlight-key">荀巨伯</span>。胡军攻打城池时，有人劝他离开，他<span class="highlight-essential">不愿舍弃朋友，坚守道义</span>。胡军问他为何不走，他要<span class="highlight-essential">舍命救友人</span>。他做到了"舍生取义"的人生准则。</p>
+                    <p><span class="highlight-key">张就</span>。他被叛军劫持，即使生命受到威胁，也<span class="highlight-essential">誓死不从</span>。面对生命威胁，毅然告诉父亲不用顾及自己，不要改变初衷。张就面对生死考验，<span class="highlight-essential">坚守忠义</span>，他做到了"舍生取义"的人生准则。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 阅读理解（二） -->
+        <div class="card" id="reading2">
+            <div class="question-header">
+                <div class="question-title">（二）名著选段阅读</div>
+                <div class="question-points">10分</div>
+            </div>
+            
+            <div class="question-content">
+                <p><strong>阅读下面名著选段，完成12-15题。</strong></p>
+                <p><strong>【选段一】</strong>《水浒传》中鲁智深大闹野猪林，救下林冲的情节。</p>
+                <p><strong>【选段二】</strong>《儒林外史》中严贡生因云片糕大闹船家，欺压强小的情节。</p>
+            </div>
+            
+            <!-- 第12-15题 -->
+            <div class="reading-question">
+                <div class="reading-question-title">12.围绕"闹"分别概括两个片段的情节。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer12')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer12" class="hidden reading-answer-content">
+                    <p>片段一：<span class="highlight-key">鲁智深大闹野猪林</span></p>
+                    <p>片段二：<span class="highlight-key">严贡生因云片糕大闹船家</span></p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">13.林冲为何被押解经过野猪林？请你简单说说林冲此前经历了怎样的劫难。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer13')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer13" class="hidden reading-answer-content">
+                    <p>林冲本是东京八十万禁军教头，因妻子张氏被高俅义子高衙内觊觎，遭多次设计陷害。<span class="highlight-essential">先被诱入白虎堂，以"行刺"罪刺配沧州</span>。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">14.同是写"闹"，但两个人物却截然不同。请从"闹"的目的来分析人物形象的性格特点。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer14')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer14" class="hidden reading-answer-content">
+                    <p>片段一的"闹"体现了鲁智深<span class="highlight-key">重情重义、粗中有细、见义勇为、嫉恶如仇</span>的性格特点。</p>
+                    <p>片段二的"闹"体现了严贡生<span class="highlight-key">虚伪贪婪、蛮横霸道、欺压弱小、吝啬、刻薄、爱占便宜</span>的性格特点。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">15.赏析选段的写作手法，填写下表。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer15')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer15" class="hidden reading-answer-content">
+                    <p><strong>片段一：</strong></p>
+                    <p>写作手法：<span class="highlight-key">侧面烘托（或"先声夺人"）</span></p>
+                    <p>表达效果：通过夸张的声音（"雷鸣"）和迅猛的动作（"铁禅杖飞将来"），<span class="highlight-essential">突出鲁智深的勇猛气势</span>，营造紧张氛围，为下文救林冲的高潮蓄势。</p>
+                    
+                    <p><strong>片段二：</strong></p>
+                    <p>写作手法：<span class="highlight-key">侧面描写（或"对比烘托"）</span></p>
+                    <p>表达效果：通过脚夫帮腔、众人求情的言行，<span class="highlight-essential">侧面烘托严贡生的蛮横无理与强势威慑</span>；同时以底层人物的无奈，揭露严贡生欺压弱小的丑恶嘴脸。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 阅读理解（三） -->
+        <div class="card" id="reading3">
+            <div class="question-header">
+                <div class="question-title">（三）美学材料阅读</div>
+                <div class="question-points">13分</div>
+            </div>
+            
+            <div class="question-content">
+                <p><strong>阅读下面文段，按要求完成16-19题。</strong></p>
+                <p><strong>【材料一】</strong>论述"美"离不开人的审美活动，离不开人的心灵创造。</p>
+                <p><strong>【材料二】</strong>论述抗战时期诗人建构土地形象，熔铸家国情感。</p>
+                <p><strong>【链接材料】</strong>艾青《火把》节选。</p>
+            </div>
+            
+            <!-- 第16-19题 -->
+            <div class="reading-question">
+                <div class="reading-question-title">16.【信息辨析】下列对材料的理解与分析不正确的一项是（ ）</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer16')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer16" class="hidden reading-answer-content">
+                    <p><span class="highlight-key">A</span></p>
+                    <p>解析：材料一第④段指出"没有心灵的映射，是无所谓美的"，强调"心"是照亮美的"源"，但并未否定客观物象的作用。A项"有无客观物象不重要"与原文矛盾，理解错误。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">17.【思路梳理】请将【材料一】的行文思路补充完整。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer17')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer17" class="hidden reading-answer-content">
+                    <p>(1) <span class="highlight-key">审美活动/心灵创造</span></p>
+                    <p>(2) <span class="highlight-key">美学家宗白华的话（或"没有心灵的映射，是无所谓美的"）</span></p>
+                    <p>(3) <span class="highlight-key">审美主体</span></p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">18.【内容理解】作为审美意象，季羡林散文中的"小月亮"、戴望舒诗歌中的"国土"分别蕴含怎样的情感？</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer18')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer18" class="hidden reading-answer-content">
+                    <p><span class="highlight-essential">"小月亮"</span>：蕴含对故乡无穷的思念、无限的爱，以及<span class="highlight-key">追忆、惆怅、留恋、惋惜</span>等复杂情感。</p>
+                    <p><span class="highlight-essential">"国土"</span>：蕴含对受难祖国的<span class="highlight-key">眷恋与忧虑</span>（或"土地的忧郁"），以及对"永恒中国"的<span class="highlight-key">希望与坚定信念</span>。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">19.【学以致用】请说明链接材料中艾青笔下的"火把"有何特点，并结合材料一、二分析这些特点形成的原因。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer19')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer19" class="hidden reading-answer-content">
+                    <p><strong>特点：</strong>美丽、耀眼、热情、象征<span class="highlight-key">团结与光明</span>（或能照亮黑暗、驱赶阴影；凝聚人群，激发团结与前进的力量）。</p>
+                    <p><strong>原因：</strong></p>
+                    <p><span class="highlight-term">材料一：</span>根据"美不自美，因人而彰""没有心灵的映射，是无所谓美的"，<span class="highlight-essential">火把的"美"源于艾青的审美心灵创造</span>。他将火把与抗战背景下人民对光明、团结的渴望结合，赋予其情感与意蕴。</p>
+                    <p><span class="highlight-term">材料二：</span>抗战时期民族危亡，诗人需回应时代命题。艾青的火把"搜索黑暗""卫护前进"，<span class="highlight-essential">熔铸了对民族命运的关切与家国情怀</span>，激发读者的忧患意识与民族认同。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 阅读理解（四） -->
+        <div class="card" id="reading4">
+            <div class="question-header">
+                <div class="question-title">（四）现代文阅读《暖心时刻》</div>
+                <div class="question-points">20分</div>
+            </div>
+            
+            <div class="question-content">
+                <p><strong>阅读白雪松的《暖心时刻》一文，完成20-24题。</strong></p>
+                <p>文章讲述了出租车司机小陈帮助一位身患重病的空巢老人，满足她最后愿望的暖心故事。</p>
+            </div>
+            
+            <!-- 第20-24题 -->
+            <div class="reading-question">
+                <div class="reading-question-title">20.请梳理文中老人情感变化的过程，补全下面的横线。（用文中词语填空，4分）</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer20')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer20" class="hidden reading-answer-content">
+                    <p>惭愧——<span class="highlight-key">①悲怆</span>——<span class="highlight-key">②动情</span>——高兴——<span class="highlight-key">③伤感</span>——<span class="highlight-key">④惊愕</span>——感动</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">21.联系上下文，根据要求赏析下面两个句子。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer21')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer21" class="hidden reading-answer-content">
+                    <p><strong>(1) 小陈把老人扶下来，把轮椅折叠好，放到自己肩上，又腾出另一只手搀扶老人，想背她下楼。</strong></p>
+                    <p>赏析：运用<span class="highlight-key">动作描写</span>，通过"扶、放、腾、搀"等一系列动词<span class="highlight-essential">生动形象地表现出小陈帮助老人下楼的情形</span>，表现出小陈爱护老人、细心周到的人物形象。</p>
+                    
+                    <p><strong>(2) 只要得到一点触动，有些事就会从心底最深处升腾起来，像根绳索捆绑着自己，深深勒进脑海。</strong></p>
+                    <p>赏析："<span class="highlight-key">升腾</span>"一词表现出老人内心的往事不受控制地涌上心头；"<span class="highlight-key">捆绑</span>"表现出往事缠绕心头，不得解脱之感；"<span class="highlight-key">勒</span>"突出了往事的印象之深。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">22.文章第⑪节画线处环境描写有何作用？请结合文章内容简要分析。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer22')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer22" class="hidden reading-answer-content">
+                    <p>1. <span class="highlight-key">暗示时间推移</span>，"曙光透出地平线"表明天色已明。</p>
+                    <p>2. <span class="highlight-key">渲染了明亮温暖的氛围</span>，用"红云""云彩"烘托老人回忆过往后内心的释然与希望。</p>
+                    <p>3. <span class="highlight-key">推动小说情节发展</span>，为后文她决定进医院面对手术做铺垫。</p>
+                    <p>4. <span class="highlight-key">暗示老人勇敢直面病魔，对未来充满希望</span>，曙光象征新生与希望。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">23.结合语境，揣摩第⑭节中两处"霞光"有何不同意蕴。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer23')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer23" class="hidden reading-answer-content">
+                    <p>前一个"霞光"指的是<span class="highlight-key">自然的日光云霞</span>。</p>
+                    <p>后一个"霞光"意蕴深刻，指<span class="highlight-essential">老人心中已燃起了生的希望，有了战胜病魔的勇气和信心</span>。</p>
+                </div>
+            </div>
+            
+            <div class="reading-question">
+                <div class="reading-question-title">24.结合文章内容，探究作品的主题。</div>
+                <div class="btn-container" style="margin-top: 10px;">
+                    <button class="btn btn-primary" onclick="showAnswer('answer24')">
+                        <i class="fas fa-eye"></i> 显示答案
+                    </button>
+                </div>
+                <div id="answer24" class="hidden reading-answer-content">
+                    <p>小说通过出租车司机小陈帮助空巢老人的故事，<span class="highlight-essential">表达了人与人之间互相理解和关爱的温情</span>，呼吁人们<span class="highlight-key">关爱空巢老人</span>，展现了<span class="highlight-key">善良、互助、理解、尊重</span>等美好品质。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 作文部分 -->
+        <div class="card" id="writing">
+            <div class="question-header">
+                <div class="question-title">三、作文（55分+书写分5分）</div>
+                <div class="question-points">60分</div>
+            </div>
+            
+            <div class="question-content">
+                <p>"和解"并非软弱，而是洞明世事后的强大抉择。苏轼以"也无风雨也无晴"与坎坷际遇和解，彰显超然气度；史铁生以赴北海看花与自身苦难和解，踏上救赎之路。真正的和解，是灵魂的成长，引领我们走向更辽阔的人生。</p>
+                
+                <p>请结合自己的经历，以<strong>《与自己和解》</strong>为题，写一篇记叙文。</p>
+                
+                <div class="highlight-point">
+                    <div class="key-point-title"><i class="fas fa-edit"></i> 写作指导</div>
+                    <p>1. <span class="highlight-term">审题关键</span>："与自己和解"意味着<span class="highlight-essential">接受自己的不完美</span>，放下内心的纠结和矛盾。</p>
+                    <p>2. <span class="highlight-term">选材建议</span>：可以写学习压力、与父母矛盾、朋友关系、自我认知等方面的经历。</p>
+                    <p>3. <span class="highlight-term">结构安排</span>：开头点题 → 叙述具体事件 → 描写内心挣扎 → 和解的过程 → 感悟升华。</p>
+                    <p>4. <span class="highlight-term">写作技巧</span>：注意细节描写，尤其是心理变化过程；结尾要点明和解的意义。</p>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-info" onclick="showAnalysis('writingTips')">
+                    <i class="fas fa-graduation-cap"></i> 写作要点
+                </button>
+            </div>
+            
+            <div class="answer-section">
+                <div id="writingTips" class="hidden">
+                    <div class="analysis-title">
+                        <i class="fas fa-lightbulb"></i> 作文写作要点
+                    </div>
+                    <div class="analysis-content">
+                        <p><strong>《与自己和解》写作要点：</strong></p>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 立意角度</div>
+                            <p>1. <span class="highlight-key">接受自己的不完美</span>（如学习成绩、外貌、性格等）</p>
+                            <p>2. <span class="highlight-key">放下过去的遗憾或错误</span></p>
+                            <p>3. <span class="highlight-key">与内心的焦虑、压力和解</span></p>
+                            <p>4. <span class="highlight-key">理解并接纳自己的独特之处</span></p>
+                        </div>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 素材选择</div>
+                            <p>1. 学习上：从"唯分数论"到关注全面发展</p>
+                            <p>2. 成长中：接受自己的普通，找到自己的闪光点</p>
+                            <p>3. 人际关系：理解父母、老师的期望，找到平衡点</p>
+                            <p>4. 兴趣特长：接受自己的爱好不被他人理解</p>
+                        </div>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 结构建议</div>
+                            <p>1. <span class="highlight-term">开头</span>：引用材料或直接点题，引出"和解"主题</p>
+                            <p>2. <span class="highlight-term">主体</span>：详细叙述具体事件，重点描写内心矛盾与挣扎</p>
+                            <p>3. <span class="highlight-term">转折</span>：某个契机让你开始思考"和解"</p>
+                            <p>4. <span class="highlight-term">高潮</span>：和解的过程和感悟</p>
+                            <p>5. <span class="highlight-term">结尾</span>：升华主题，谈和解的意义和成长</p>
+                        </div>
+                        
+                        <div class="highlight-point">
+                            <div class="key-point-title"><i class="fas fa-key"></i> 注意事项</div>
+                            <p>1. 必须是<span class="highlight-key">记叙文</span>，要有具体事件和细节描写</p>
+                            <p>2. 心理描写要<span class="highlight-key">细腻真实</span>，展现变化过程</p>
+                            <p>3. 字数不少于<span class="highlight-key">600字</span>，注意卷面整洁</p>
+                            <p>4. 文中不得出现真实的<span class="highlight-key">校名、地名和人名</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>九年级语文1月独立作业讲评系统</p>
+            <p>设计：语文教研组 | 适用于教室投影教学</p>
+            <p><i class="far fa-copyright"></i> 2025-2026 姜堰区城西学校教育集团</p>
+        </footer>
+    </div>
+
+    <script>
+        // 显示答案函数
+        function showAnswer(answerId) {
+            const answerElement = document.getElementById(answerId);
+            if (answerElement.classList.contains('hidden')) {
+                answerElement.classList.remove('hidden');
+                answerElement.classList.add('fade-in');
+            } else {
+                answerElement.classList.add('hidden');
+            }
+        }
+        
+        // 显示解析函数
+        function showAnalysis(analysisId) {
+            const analysisElement = document.getElementById(analysisId);
+            if (analysisElement.classList.contains('hidden')) {
+                analysisElement.classList.remove('hidden');
+                analysisElement.classList.add('fade-in');
+            } else {
+                analysisElement.classList.add('hidden');
+            }
+        }
+        
+        // 显示阅读理解全部答案
+        function showAllAnswers(sectionId) {
+            const section = document.getElementById(sectionId);
+            const answerElements = section.querySelectorAll('.reading-answer-content');
+            answerElements.forEach(element => {
+                element.classList.remove('hidden');
+                element.classList.add('fade-in');
+            });
+        }
+        
+        // 为选项添加点击效果
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // 先移除所有选项的选中状态
+                document.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // 为当前选项添加选中状态
+                this.classList.add('selected');
+                
+                // 显示答案按钮
+                const card = this.closest('.card');
+                const answerBtn = card.querySelector('.btn-primary');
+                if (answerBtn) {
+                    answerBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+        
+        // 页面加载时显示第一条题目的答案（演示用）
+        window.addEventListener('load', function() {
+            // 可以在这里添加初始化代码
+            console.log('试卷讲评系统已加载完成！');
+            
+            // 自动展开第一个阅读理解题目的第一小题，作为演示
+            setTimeout(() => {
+                const firstReadingAnswer = document.getElementById('answer6');
+                if (firstReadingAnswer) {
+                    firstReadingAnswer.classList.remove('hidden');
+                    firstReadingAnswer.classList.add('fade-in');
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
